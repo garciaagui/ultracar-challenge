@@ -21,7 +21,7 @@ const validateLoginData = (loginData) => {
   const foundUser = mockedUsers.find((user) => user.email === email);
 
   if (!foundUser || password !== foundUser.password) return false;
-  return true;
+  return foundUser;
 };
 
 export { validateLoginBtnDisablement, validateLoginData };

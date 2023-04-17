@@ -1,19 +1,19 @@
 const mockedUsers = [
   {
     id: 1,
-    username: 'Joana',
+    name: 'Joana',
     email: 'joana@mail.com',
     password: 'senhadajoana',
   },
   {
     id: 2,
-    username: 'Guilherme',
+    name: 'Guilherme',
     email: 'guilherme@mail.com',
     password: 'senhadoguilherme',
   },
   {
     id: 3,
-    username: 'Patricia',
+    name: 'Patricia',
     email: 'patricia@mail.com',
     password: 'senhadapatricia',
   },

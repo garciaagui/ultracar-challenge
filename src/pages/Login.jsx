@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Image, Row, Col, Form, Input, Button, notification } from 'antd';
 import logo from '../assets/ultracar-main-logo.png';
@@ -7,11 +7,14 @@ import {
   validateLoginData,
   validateLoginBtnDisablement,
 } from '../utils/validations/loginValidations';
+import AppContext from '../context/AppContext';
 
 function Login() {
   const [loginData, setLoginData] = useState(LOGIN_INITIAL_STATE);
   const [isLoginBtnDisable, setIsLoginBtnDisable] = useState(true);
   const navigate = useNavigate();
+
+  const { setUser } = useContext(AppContext);
 
   useEffect(() => {
     validateLoginBtnDisablement(loginData, setIsLoginBtnDisable);
@@ -28,9 +31,11 @@ function Login() {
   const handleLogin = (event) => {
     event.preventDefault();
 
-    const isLogged = validateLoginData(loginData);
+    const userStoredData = validateLoginData(loginData);
 
-    if (isLogged) {
+    if (userStoredData) {
+      const { email, name } = userStoredData;
+      setUser({ email, name });
       navigate('/orders/entry');
       notification.success({
         message: 'Login realizado com sucesso!',
