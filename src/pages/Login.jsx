@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Image, Row, Col, Form, Input, Button, notification } from 'antd';
-import Paragraph from 'antd/es/typography/Paragraph';
 import logo from '../assets/ultracar-main-logo.png';
 import { LOGIN_INITIAL_STATE } from '../utils/constants';
 import {
@@ -55,7 +54,7 @@ function Login() {
           }}
         >
           <Image width={250} src={logo} preview={false} alt="Ultracar logo" />
-          <Paragraph strong="true">Acesse sua conta</Paragraph>
+          <p>Acesse sua conta</p>
         </div>
 
         <Form name="basic" layout="vertical">
@@ -66,7 +65,11 @@ function Login() {
               { required: true, message: 'Por favor, insira seu e-mail' },
             ]}
           >
-            <Input name="email" onChange={handleChanges} />
+            <Input
+              name="email"
+              placeholder="usuario@mail.com"
+              onChange={handleChanges}
+            />
           </Form.Item>
 
           <Form.Item
@@ -74,7 +77,11 @@ function Login() {
             name="password"
             rules={[{ required: true, message: 'Por favor, insira sua senha' }]}
           >
-            <Input.Password name="password" onChange={handleChanges} />
+            <Input.Password
+              name="password"
+              placeholder="******"
+              onChange={handleChanges}
+            />
           </Form.Item>
 
           <Form.Item style={{ textAlign: 'center' }}>
