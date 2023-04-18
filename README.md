@@ -5,7 +5,7 @@
 ## Sumário
 
 <ol>
-  <li><a href="#descricao">Descrição</a></li>
+  <li><a href="#descrição">Descrição</a></li>
   <li><a href="#tecnologias">Tecnologias</a></li>
   <li><a href="#como-executar">Como Executar</a></li>
   <li><a href="#contato">Contato</a></li>
@@ -108,7 +108,7 @@ Desenvolvido por **Guilherme Garcia**. Seguem abaixo minhas redes sociais e meio
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[project-url]: https://recipes-perfecto-app.vercel.app
+[project-url]: https://ultracar-challenge.vercel.app/
 
 <!-- Stacks URLs -->
 
@@ -119,7 +119,7 @@ Desenvolvido por **Guilherme Garcia**. Seguem abaixo minhas redes sociais e meio
 [html5-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
 [javascript-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 [jest-url]: https://jestjs.io/
-[react-url]: https://reactjs.org/
+[react-url]: https://react.dev/
 [react-router-url]: https://reactrouter.com/en/main
 [rtl-url]: https://testing-library.com/docs/react-testing-library/intro/
 [stylelint-url]: https://stylelint.io/
