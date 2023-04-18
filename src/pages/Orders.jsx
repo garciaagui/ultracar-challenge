@@ -3,6 +3,7 @@ import { Row, Col, Divider } from 'antd';
 
 import mockedOrders from '../data/mockedOrders';
 import TableOrders from '../components/TableOrders';
+import Navbar from '../components/Navbar';
 
 function Orders() {
   const [orders, setOrders] = useState([]);
@@ -24,13 +25,16 @@ function Orders() {
   }, []);
 
   return (
-    <Row justify="center">
-      <Col span={16}>
-        <h1>Pedidos</h1>
-        <Divider />
-        <TableOrders orders={orders} setOrders={setOrders} />
-      </Col>
-    </Row>
+    <main>
+      <Navbar />
+      <Row justify="center">
+        <Col span={16}>
+          <h1>Pedidos</h1>
+          <Divider />
+          <TableOrders orders={orders} setOrders={setOrders} />
+        </Col>
+      </Row>
+    </main>
   );
 }
 
