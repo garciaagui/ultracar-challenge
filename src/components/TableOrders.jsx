@@ -78,7 +78,9 @@ function TableOrders({ orders, setOrders }) {
     },
   ];
 
-  return <Table dataSource={orders} columns={tableColumns} />;
+  return (
+    <Table dataSource={orders} columns={tableColumns} pagination={false} />
+  );
 }
 
 TableOrders.propTypes = {
