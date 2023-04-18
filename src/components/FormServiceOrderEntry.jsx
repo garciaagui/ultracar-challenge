@@ -1,11 +1,16 @@
-import { Form, Button, Select, Table, notification } from 'antd';
+import { Form, Button, Select, notification } from 'antd';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import mockedUsers from '../data/mockedUsers';
 import mockedServices from '../data/mockedServices';
-import validateOrderBtnDisablement from '../utils/validations/orderEntryValidations';
+import {
+  validateBtnDisablement,
+  setEmployee,
+  getTotalPrice,
+} from '../utils/functions/orderEntry';
+import TableServiceParts from './TableServiceParts';
 
 const { Option } = Select;
 
@@ -18,52 +23,8 @@ function FormServiceOrderEntry({ order, setOrder }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    validateOrderBtnDisablement(order, setIsOrderBtnDisable);
+    validateBtnDisablement(order, setIsOrderBtnDisable);
   }, [order]);
-
-  const setEmployee = (value) => {
-    setOrder((prevState) => ({
-      ...prevState,
-      employee: value,
-    }));
-  };
-
-  const generatePartsTable = (parts) => {
-    const columns = [
-      {
-        title: 'Peça',
-        dataIndex: 'name',
-        key: 'name',
-      },
-      {
-        title: 'Valor',
-        dataIndex: 'price',
-        key: 'price',
-        render: (price) => `R$ ${price.toFixed(2)}`,
-      },
-    ];
-
-    return (
-      <Table
-        dataSource={parts}
-        columns={columns}
-        pagination={false}
-        title={() => 'Peças relacionadas ao serviço'}
-      />
-    );
-  };
-
-  const getTotalPrice = (selectedService) => {
-    let servicePrice = selectedService.price;
-
-    if (selectedService.parts.length) {
-      selectedService.parts.forEach((part) => {
-        servicePrice += part.price;
-      });
-    }
-
-    return servicePrice;
-  };
 
   const getServiceData = (value) => {
     const selectedService = mockedServices.find((item) => item.name === value);
@@ -78,11 +39,16 @@ function FormServiceOrderEntry({ order, setOrder }) {
     if (!selectedService.parts.length) {
       setTableContent('Este serviço não possui peças');
     } else {
-      setTableContent(generatePartsTable(selectedService.parts));
+      setTableContent(<TableServiceParts parts={selectedService.parts} />);
     }
   };
 
   const startService = () => {
+    const startDate = new Date().toLocaleDateString();
+    setOrder((prevState) => ({
+      ...prevState,
+      startDate,
+    }));
     navigate('/orders');
     notification.success({
       message: 'Serviço inicializado!',
@@ -98,7 +64,7 @@ function FormServiceOrderEntry({ order, setOrder }) {
       >
         <Select
           placeholder="Responsável"
-          onChange={(value) => setEmployee(value)}
+          onChange={(value) => setEmployee(value, setOrder)}
         >
           {mockedUsers.map((user) => {
             return (
