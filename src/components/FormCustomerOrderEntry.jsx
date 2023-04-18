@@ -62,7 +62,7 @@ function FormCustomerOrderEntry({ setCustomerData, setOrder }) {
         </Button>
       </Form.Item>
 
-      <div className="customer-data-order-entry">{customerContent}</div>
+      <div className="div-content">{customerContent}</div>
     </Form>
   );
 }

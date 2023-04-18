@@ -45,13 +45,7 @@ function Login() {
   return (
     <Row justify="center">
       <Col span={6}>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            flexDirection: 'column',
-          }}
-        >
+        <div className="div-login-img">
           <Image width={250} src={logo} preview={false} alt="Ultracar logo" />
           <p>Acesse sua conta</p>
         </div>

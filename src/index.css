@@ -2,9 +2,16 @@ h1 {
   text-align: center;
 }
 
-.customer-data-order-entry, .parts-table-order-entry, .div-content {
+.div-login-img {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-weight: 800;
+}
+
+.div-content {
+  background-color: rgb(230, 230, 230);
   margin-bottom: 24px;
   padding: 10px;
-  background-color: rgb(230, 230, 230);
   text-align: center;
 }

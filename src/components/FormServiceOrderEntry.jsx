@@ -95,7 +95,7 @@ function FormServiceOrderEntry({ order, setOrder }) {
         </Select>
       </Form.Item>
 
-      <div className="parts-table-order-entry">
+      <div className="div-content">
         {!Object.keys(service).length ? 'Selecione um serviço' : tableContent}
       </div>
 
