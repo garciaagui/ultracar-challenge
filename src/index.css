@@ -2,7 +2,7 @@ h1 {
   text-align: center;
 }
 
-.customer-data-order-entry, .parts-table-order-entry {
+.customer-data-order-entry, .parts-table-order-entry, .div-content {
   margin-bottom: 24px;
   padding: 10px;
   background-color: rgb(230, 230, 230);
